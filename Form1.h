@@ -1,4 +1,7 @@
 #pragma once
+#include "FractalGenCpp.h"
+#include "ImageOutput.h"
+#include "DataController.h"
 
 namespace CppCLRWinformsProjekt {
 
@@ -21,6 +24,8 @@ namespace CppCLRWinformsProjekt {
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
+
+			DataController dataController;
 		}
 
 	protected:
@@ -34,23 +39,46 @@ namespace CppCLRWinformsProjekt {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Button^ generateButton;
+	private: System::Windows::Forms::PictureBox^ pictureBox;
+	private: System::Windows::Forms::TextBox^ heightBox;
+
+	protected:
+
+
+
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::Label^ heightLabel;
+	private: System::Windows::Forms::Label^ widthLabel;
+
+
+
+	private: System::Windows::Forms::TextBox^ widthBox;
+	private: System::Windows::Forms::Label^ iterLabel;
+
+
+	private: System::Windows::Forms::TextBox^ iterBox;
+
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ threadsLabel;
+
 
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::TextBox^ textBox6;
+	private: System::Windows::Forms::TextBox^ threadsBox;
+
+	private: System::Windows::Forms::RadioButton^ cppButton;
+	private: System::Windows::Forms::RadioButton^ asmButton;
+	private: System::Windows::Forms::Label^ libLabel;
+
+	private: System::Windows::Forms::Button^ saveButton;
+
+
+
+
+
 	protected:
 
 	private:
@@ -66,50 +94,54 @@ namespace CppCLRWinformsProjekt {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->generateButton = (gcnew System::Windows::Forms::Button());
+			this->pictureBox = (gcnew System::Windows::Forms::PictureBox());
+			this->heightBox = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->heightLabel = (gcnew System::Windows::Forms::Label());
+			this->widthLabel = (gcnew System::Windows::Forms::Label());
+			this->widthBox = (gcnew System::Windows::Forms::TextBox());
+			this->iterLabel = (gcnew System::Windows::Forms::Label());
+			this->iterBox = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->threadsLabel = (gcnew System::Windows::Forms::Label());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->threadsBox = (gcnew System::Windows::Forms::TextBox());
+			this->cppButton = (gcnew System::Windows::Forms::RadioButton());
+			this->asmButton = (gcnew System::Windows::Forms::RadioButton());
+			this->libLabel = (gcnew System::Windows::Forms::Label());
+			this->saveButton = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// button1
+			// generateButton
 			// 
-			this->button1->Location = System::Drawing::Point(12, 357);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(349, 23);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"Wygeneruj fraktal";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+			this->generateButton->Location = System::Drawing::Point(12, 357);
+			this->generateButton->Name = L"generateButton";
+			this->generateButton->Size = System::Drawing::Size(349, 23);
+			this->generateButton->TabIndex = 0;
+			this->generateButton->Text = L"Wygeneruj fraktal";
+			this->generateButton->UseVisualStyleBackColor = true;
+			this->generateButton->Click += gcnew System::EventHandler(this, &Form1::generateButton_Click);
 			// 
-			// pictureBox1
+			// pictureBox
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(12, 12);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(349, 339);
-			this->pictureBox1->TabIndex = 1;
-			this->pictureBox1->TabStop = false;
+			this->pictureBox->Location = System::Drawing::Point(12, 12);
+			this->pictureBox->Name = L"pictureBox";
+			this->pictureBox->Size = System::Drawing::Size(349, 339);
+			this->pictureBox->TabIndex = 1;
+			this->pictureBox->TabStop = false;
 			// 
-			// textBox1
+			// heightBox
 			// 
-			this->textBox1->Location = System::Drawing::Point(510, 37);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(156, 20);
-			this->textBox1->TabIndex = 2;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Form1::textBox1_TextChanged);
+			this->heightBox->Location = System::Drawing::Point(510, 37);
+			this->heightBox->Name = L"heightBox";
+			this->heightBox->Size = System::Drawing::Size(156, 20);
+			this->heightBox->TabIndex = 2;
+			this->heightBox->TextChanged += gcnew System::EventHandler(this, &Form1::textBox1_TextChanged);
 			// 
 			// label1
 			// 
@@ -121,54 +153,54 @@ namespace CppCLRWinformsProjekt {
 			this->label1->Text = L"Parametry generowanego obrazu ";
 			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
 			// 
-			// label2
+			// heightLabel
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(371, 40);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(113, 13);
-			this->label2->TabIndex = 4;
-			this->label2->Text = L"Wysokoœæ w pixelach:";
-			this->label2->Click += gcnew System::EventHandler(this, &Form1::label2_Click);
+			this->heightLabel->AutoSize = true;
+			this->heightLabel->Location = System::Drawing::Point(371, 40);
+			this->heightLabel->Name = L"heightLabel";
+			this->heightLabel->Size = System::Drawing::Size(113, 13);
+			this->heightLabel->TabIndex = 4;
+			this->heightLabel->Text = L"Wysokoœæ w pixelach:";
+			this->heightLabel->Click += gcnew System::EventHandler(this, &Form1::label2_Click);
 			// 
-			// label3
+			// widthLabel
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(371, 66);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(113, 13);
-			this->label3->TabIndex = 6;
-			this->label3->Text = L"Szerokoœæ w pixelach:";
-			this->label3->Click += gcnew System::EventHandler(this, &Form1::label3_Click);
+			this->widthLabel->AutoSize = true;
+			this->widthLabel->Location = System::Drawing::Point(371, 66);
+			this->widthLabel->Name = L"widthLabel";
+			this->widthLabel->Size = System::Drawing::Size(113, 13);
+			this->widthLabel->TabIndex = 6;
+			this->widthLabel->Text = L"Szerokoœæ w pixelach:";
+			this->widthLabel->Click += gcnew System::EventHandler(this, &Form1::label3_Click);
 			// 
-			// textBox2
+			// widthBox
 			// 
-			this->textBox2->Location = System::Drawing::Point(510, 63);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(156, 20);
-			this->textBox2->TabIndex = 5;
+			this->widthBox->Location = System::Drawing::Point(510, 63);
+			this->widthBox->Name = L"widthBox";
+			this->widthBox->Size = System::Drawing::Size(156, 20);
+			this->widthBox->TabIndex = 5;
 			// 
-			// label4
+			// iterLabel
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(371, 100);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(124, 13);
-			this->label4->TabIndex = 7;
-			this->label4->Text = L"Maksymalna ioœæ iteracji:";
-			this->label4->Click += gcnew System::EventHandler(this, &Form1::label4_Click);
+			this->iterLabel->AutoSize = true;
+			this->iterLabel->Location = System::Drawing::Point(371, 92);
+			this->iterLabel->Name = L"iterLabel";
+			this->iterLabel->Size = System::Drawing::Size(124, 13);
+			this->iterLabel->TabIndex = 7;
+			this->iterLabel->Text = L"Maksymalna ioœæ iteracji:";
+			this->iterLabel->Click += gcnew System::EventHandler(this, &Form1::label4_Click);
 			// 
-			// textBox3
+			// iterBox
 			// 
-			this->textBox3->Location = System::Drawing::Point(510, 97);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(156, 20);
-			this->textBox3->TabIndex = 8;
+			this->iterBox->Location = System::Drawing::Point(510, 89);
+			this->iterBox->Name = L"iterBox";
+			this->iterBox->Size = System::Drawing::Size(156, 20);
+			this->iterBox->TabIndex = 8;
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(479, 315);
+			this->label5->Location = System::Drawing::Point(813, 9);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(90, 13);
 			this->label5->TabIndex = 9;
@@ -178,7 +210,7 @@ namespace CppCLRWinformsProjekt {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(376, 338);
+			this->label6->Location = System::Drawing::Point(707, 40);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(119, 13);
 			this->label6->TabIndex = 10;
@@ -188,74 +220,126 @@ namespace CppCLRWinformsProjekt {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(376, 362);
+			this->label7->Location = System::Drawing::Point(707, 64);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(123, 13);
 			this->label7->TabIndex = 11;
 			this->label7->Text = L"Czas generowania ASM:";
 			this->label7->Click += gcnew System::EventHandler(this, &Form1::label7_Click);
 			// 
-			// label8
+			// threadsLabel
 			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(371, 135);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(72, 13);
-			this->label8->TabIndex = 12;
-			this->label8->Text = L"Iloœæ w¹tków:";
-			this->label8->Click += gcnew System::EventHandler(this, &Form1::label8_Click);
+			this->threadsLabel->AutoSize = true;
+			this->threadsLabel->Location = System::Drawing::Point(371, 118);
+			this->threadsLabel->Name = L"threadsLabel";
+			this->threadsLabel->Size = System::Drawing::Size(72, 13);
+			this->threadsLabel->TabIndex = 12;
+			this->threadsLabel->Text = L"Iloœæ w¹tków:";
+			this->threadsLabel->Click += gcnew System::EventHandler(this, &Form1::label8_Click);
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(515, 335);
+			this->textBox4->Location = System::Drawing::Point(846, 37);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(156, 20);
 			this->textBox4->TabIndex = 14;
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(515, 359);
+			this->textBox5->Location = System::Drawing::Point(846, 61);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(156, 20);
 			this->textBox5->TabIndex = 15;
 			// 
-			// textBox6
+			// threadsBox
 			// 
-			this->textBox6->Location = System::Drawing::Point(510, 132);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(156, 20);
-			this->textBox6->TabIndex = 16;
+			this->threadsBox->Location = System::Drawing::Point(510, 115);
+			this->threadsBox->Name = L"threadsBox";
+			this->threadsBox->Size = System::Drawing::Size(156, 20);
+			this->threadsBox->TabIndex = 16;
+			// 
+			// cppButton
+			// 
+			this->cppButton->AutoSize = true;
+			this->cppButton->Location = System::Drawing::Point(509, 172);
+			this->cppButton->Name = L"cppButton";
+			this->cppButton->Size = System::Drawing::Size(44, 17);
+			this->cppButton->TabIndex = 17;
+			this->cppButton->TabStop = true;
+			this->cppButton->Text = L"C++";
+			this->cppButton->UseVisualStyleBackColor = true;
+			// 
+			// asmButton
+			// 
+			this->asmButton->AutoSize = true;
+			this->asmButton->Location = System::Drawing::Point(559, 172);
+			this->asmButton->Name = L"asmButton";
+			this->asmButton->Size = System::Drawing::Size(48, 17);
+			this->asmButton->TabIndex = 18;
+			this->asmButton->TabStop = true;
+			this->asmButton->Text = L"ASM";
+			this->asmButton->UseVisualStyleBackColor = true;
+			// 
+			// libLabel
+			// 
+			this->libLabel->AutoSize = true;
+			this->libLabel->Location = System::Drawing::Point(371, 174);
+			this->libLabel->Name = L"libLabel";
+			this->libLabel->Size = System::Drawing::Size(102, 13);
+			this->libLabel->TabIndex = 19;
+			this->libLabel->Text = L"Biblioteka generacji:";
+			this->libLabel->Click += gcnew System::EventHandler(this, &Form1::label9_Click);
+			// 
+			// saveButton
+			// 
+			this->saveButton->Location = System::Drawing::Point(478, 141);
+			this->saveButton->Name = L"saveButton";
+			this->saveButton->Size = System::Drawing::Size(75, 23);
+			this->saveButton->TabIndex = 21;
+			this->saveButton->Text = L"Zapisz";
+			this->saveButton->UseVisualStyleBackColor = true;
+			this->saveButton->Click += gcnew System::EventHandler(this, &Form1::saveButton_Click);
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(678, 391);
-			this->Controls->Add(this->textBox6);
+			this->ClientSize = System::Drawing::Size(1014, 391);
+			this->Controls->Add(this->saveButton);
+			this->Controls->Add(this->libLabel);
+			this->Controls->Add(this->asmButton);
+			this->Controls->Add(this->cppButton);
+			this->Controls->Add(this->threadsBox);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->label8);
+			this->Controls->Add(this->threadsLabel);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->label2);
+			this->Controls->Add(this->iterBox);
+			this->Controls->Add(this->iterLabel);
+			this->Controls->Add(this->widthLabel);
+			this->Controls->Add(this->widthBox);
+			this->Controls->Add(this->heightLabel);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->pictureBox1);
-			this->Controls->Add(this->button1);
-			this->Name = L"Generator fraktali ze zbioru Mandelbrota";
+			this->Controls->Add(this->heightBox);
+			this->Controls->Add(this->pictureBox);
+			this->Controls->Add(this->generateButton);
+			this->Name = L"Form1";
 			this->Text = L"Generator fraktali ze zbioru Mandelbrota";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void generateButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		int width = 1000;
+		int height = 1000;
+		int maxIter = 500;
+		int numThreads = 8;
+		FractalGenCpp generator(width, height, maxIter, numThreads);
+		generator.threadManagement();
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -266,6 +350,8 @@ namespace CppCLRWinformsProjekt {
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
 	}
 	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -277,5 +363,11 @@ namespace CppCLRWinformsProjekt {
 	}
 	private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+	private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void saveButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+	}
+};
 }

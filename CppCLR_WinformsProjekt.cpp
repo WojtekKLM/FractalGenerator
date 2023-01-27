@@ -1,7 +1,7 @@
 #include "pch.h"
-#include "GenerateImage.h"
-#include "FractalGeneration.h"
 #include "Form1.h"
+#include "FractalGenCpp.h"
+#include "ImageOutput.h"
 
 using namespace System;
 
@@ -13,9 +13,6 @@ int main() {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Application::Run(gcnew CppCLRWinformsProjekt::Form1()); 
-
-	//GenerateImage mandelbrot;
-	//mandelbrot.savePNG("fraktal.png");
 
 	return 0;
 }

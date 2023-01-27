@@ -29,10 +29,10 @@
     <ClInclude Include="Form1.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="FractalGeneration.h">
+    <ClInclude Include="FractalGenCpp.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="GenerateImage.h">
+    <ClInclude Include="DataController.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,6 +47,12 @@
       <Filter>Pliki zasobów</Filter>
     </ClCompile>
     <ClCompile Include="Form1.cpp">
+      <Filter>Pliki zasobów</Filter>
+    </ClCompile>
+    <ClCompile Include="FractalGenCpp.cpp">
+      <Filter>Pliki zasobów</Filter>
+    </ClCompile>
+    <ClCompile Include="DataController.cpp">
       <Filter>Pliki zasobów</Filter>
     </ClCompile>
   </ItemGroup>
