@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <windows.h>
+#include "ImageOutput.h"
 
 class FractalGenCpp {
 private:
@@ -24,6 +25,7 @@ private:
     int HEIGHT;
     int MAX_ITER;
     int NUM_THREADS;
+    ImageOutput* output;
 
 public:
     FractalGenCpp(int width, int height, int maxIter, int numThreads);
