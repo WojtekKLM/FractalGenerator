@@ -13,8 +13,9 @@ void FractalGenAsm::fractalGenerate(int id, int numThreads, vector<vector<int>>&
     for (int i = id; i < WIDTH * HEIGHT; i += numThreads) {
         int x = i % WIDTH;
         int y = i / WIDTH;
-        complex<double> point = mandelbrot_calculation(x, WIDTH, y, HEIGHT);
-
+        int arr[] = { x, WIDTH, y, HEIGHT };
+        mandelbrot_calculation(arr, tablicaRes);
+        complex<double> point(tablicaRes[0], tablicaRes[1]);
         complex<double> z(0, 0);
         int iterations = 0;
         while (abs(z) < 2 && iterations < MAX_ITER) {

@@ -20,7 +20,7 @@
 #include "ImageOutput.h"
 #include "GenTimer.h"
 
-extern "C" double mandelbrot_calculation(int x, int width, int y, int height);
+extern "C" void mandelbrot_calculation(int* tablica, double* tablicaRes);
 
 class FractalGenAsm {
 private:
@@ -32,6 +32,7 @@ private:
     float startTime;
     ImageOutput* output;
     GenTimer* timer;
+    double* tablicaRes = new double[2];
 
 public:
     FractalGenAsm(int width, int height, int maxIter, int numThreads);
