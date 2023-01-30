@@ -35,6 +35,15 @@
     <ClInclude Include="DataController.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="ImageOutput.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="FractalGenAsm.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="GenTimer.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">
@@ -55,10 +64,29 @@
     <ClCompile Include="DataController.cpp">
       <Filter>Pliki zasobów</Filter>
     </ClCompile>
+    <ClCompile Include="ImageOutput.cpp">
+      <Filter>Pliki zasobów</Filter>
+    </ClCompile>
+    <ClCompile Include="FractalGenAsm.cpp">
+      <Filter>Pliki zasobów</Filter>
+    </ClCompile>
+    <ClCompile Include="GenTimer.cpp">
+      <Filter>Pliki zasobów</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
       <Filter>Pliki źródłowe</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AsmLib.def">
+      <Filter>Pliki nagłówkowe</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="AsmFractalGen.asm">
+      <Filter>Pliki zasobów</Filter>
+    </MASM>
   </ItemGroup>
 </Project>

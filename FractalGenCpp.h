@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MANDELBROT_GENERATOR_H
-#define MANDELBROT_GENERATOR_H
+#ifndef FRACTAL_GEN_CPP_H
+#define FRACTAL_GEN_CPP_H
 
 #include <thread>
 #include <vector>
@@ -18,6 +18,7 @@
 #include <iostream>
 #include <windows.h>
 #include "ImageOutput.h"
+#include "GenTimer.h"
 
 class FractalGenCpp {
 private:
@@ -25,12 +26,16 @@ private:
     int HEIGHT;
     int MAX_ITER;
     int NUM_THREADS;
+    float runTime;
+    float startTime;
     ImageOutput* output;
+    GenTimer* timer;
 
 public:
     FractalGenCpp(int width, int height, int maxIter, int numThreads);
     void threadManagement();
     void fractalGenerate(int id, int numThreads, std::vector<std::vector<int>>& image);
+    float returnRunTime();
 };
 
 #endif

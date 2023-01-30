@@ -2,29 +2,25 @@
 //#ifndef DATACONTROLLER_H
 //#define DATACONTROLLER_H
 
-#include <iostream>
-#include <string>
-#include <cstdint>
-#include <cstdio>
-#include <cstdlib>
-#include <stdio.h>
-#include <windows.h>
+#include <vector>
 #include "pch.h"
-
 
 using namespace std;
 
-class DataController {
+ref class DataController {
 private:
-	int width, height, maxIter, numThreads;
+    float data1, data2, data3, data4, data5;
+    int index;
+    bool isFull;
+    float dataAsm1, dataAsm2, dataAsm3, dataAsm4, dataAsm5;
+    int indexAsm;
+    bool isFullAsm;
 public:
-	DataController();
-	int getWidth();
-	int getHeight();
-	int getMaxIter();
-	int getNumThreads();
-	void setWidth(int w);
-	void setHeight(int h);
-	void setMaxIter(int m);
-	void setNumThreads(int n);
+    DataController();
+    void addData(float value);
+    float getAverage();
+    bool isDataFull();
+    void addDataAsm(float value);
+    float getAverageAsm();
+    bool isDataFullAsm();
 };
