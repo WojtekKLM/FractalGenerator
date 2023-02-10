@@ -7,6 +7,9 @@ using namespace std;
 
 FractalGenAsm::FractalGenAsm(int width, int height, int maxIter, int numThreads) : WIDTH(width), HEIGHT(height), MAX_ITER(maxIter), NUM_THREADS(numThreads) {
     output = new ImageOutput(width, height, maxIter);
+    for (int i = 0; i < NUM_THREADS; i++) {
+        tablicaRes[i] = new double[2];
+    }
     timer = new GenTimer();
 }
 void FractalGenAsm::fractalGenerate(int id, int numThreads, vector<vector<int>>& image) {
@@ -14,8 +17,8 @@ void FractalGenAsm::fractalGenerate(int id, int numThreads, vector<vector<int>>&
         int x = i % WIDTH;
         int y = i / WIDTH;
         int arr[] = { x, WIDTH, y, HEIGHT };
-        mandelbrot_calculation(arr, tablicaRes);
-        complex<double> point(tablicaRes[0], tablicaRes[1]);
+        mandelbrot_calculation(arr, tablicaRes[id]);
+        complex<double> point(tablicaRes[id][0], tablicaRes[id][1]);
         complex<double> z(0, 0);
         int iterations = 0;
         while (abs(z) < 2 && iterations < MAX_ITER) {

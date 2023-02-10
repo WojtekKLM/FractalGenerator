@@ -31,8 +31,8 @@ mandelbrot_calculation PROC C
     cvtsi2sd xmm2, rax  ; xmm2 = (double) WIDTH
     divsd xmm1, xmm2    ; xmm1 = xmm1 / xmm2 (x - WIDTH/2) * 4.0 / WIDTH
 
-    movq rax, xmm1
-    mov [r10], rax
+    movq rax, xmm1      ; przekopiuj wartoœci z rejestru do akumulatora 
+    mov [r10], rax      ; przekopiuj wartoœci z akumulatora na wartoœæ wskazywan¹ przez pinter
 
     ; y = y - HEIGHT / 2
     mov rax, r9         ; rax = HEIGHT
@@ -50,9 +50,8 @@ mandelbrot_calculation PROC C
     cvtsi2sd xmm4, rax  ; xmm4 = (double) HEIGHT
     divsd xmm3, xmm4    ; xmm3 = xmm3 / xmm4 (y - HEIGHT/2) * 4.0 / HEIGHT
 
-    movq rax, xmm3
-    ;mov rax, 9
-    mov [R10+8], rax
+    movq rax, xmm3      ; przekopiuj wartoœci z rejestru do akumulatora 
+    mov [R10+8], rax    ; przekopiuj wartoœci z akumulatora na wartoœæ wskazywan¹ przez pinter
 
     ; Zwrócenie wyniku w xmm0 
     ret 

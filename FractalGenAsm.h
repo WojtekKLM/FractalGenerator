@@ -32,7 +32,7 @@ private:
     float startTime;
     ImageOutput* output;
     GenTimer* timer;
-    double* tablicaRes = new double[2];
+    double** tablicaRes = new double* [NUM_THREADS];
 
 public:
     FractalGenAsm(int width, int height, int maxIter, int numThreads);

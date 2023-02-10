@@ -43,7 +43,7 @@ namespace CppCLRWinformsProjekt {
 			}
 		}
 	private: System::Windows::Forms::Button^ generateButton;
-	private: System::Windows::Forms::PictureBox^ pictureBox;
+
 	private: System::Windows::Forms::TextBox^ heightBox;
 
 	protected:
@@ -87,7 +87,6 @@ namespace CppCLRWinformsProjekt {
 		void InitializeComponent(void)
 		{
 			this->generateButton = (gcnew System::Windows::Forms::Button());
-			this->pictureBox = (gcnew System::Windows::Forms::PictureBox());
 			this->heightBox = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->heightLabel = (gcnew System::Windows::Forms::Label());
@@ -113,31 +112,21 @@ namespace CppCLRWinformsProjekt {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->medTimeAsmBox = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// generateButton
 			// 
-			this->generateButton->Location = System::Drawing::Point(12, 357);
+			this->generateButton->Location = System::Drawing::Point(10, 353);
 			this->generateButton->Name = L"generateButton";
-			this->generateButton->Size = System::Drawing::Size(349, 23);
+			this->generateButton->Size = System::Drawing::Size(295, 23);
 			this->generateButton->TabIndex = 0;
 			this->generateButton->Text = L"Wygeneruj fraktal";
 			this->generateButton->UseVisualStyleBackColor = true;
 			this->generateButton->Click += gcnew System::EventHandler(this, &Form1::generateButton_Click);
 			// 
-			// pictureBox
-			// 
-			this->pictureBox->Location = System::Drawing::Point(12, 12);
-			this->pictureBox->Name = L"pictureBox";
-			this->pictureBox->Size = System::Drawing::Size(349, 339);
-			this->pictureBox->TabIndex = 1;
-			this->pictureBox->TabStop = false;
-			this->pictureBox->Click += gcnew System::EventHandler(this, &Form1::pictureBox_Click);
-			// 
 			// heightBox
 			// 
-			this->heightBox->Location = System::Drawing::Point(510, 37);
+			this->heightBox->Location = System::Drawing::Point(150, 34);
 			this->heightBox->Name = L"heightBox";
 			this->heightBox->Size = System::Drawing::Size(156, 20);
 			this->heightBox->TabIndex = 2;
@@ -148,7 +137,7 @@ namespace CppCLRWinformsProjekt {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(367, 12);
+			this->label1->Location = System::Drawing::Point(7, 9);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(217, 17);
 			this->label1->TabIndex = 3;
@@ -160,7 +149,7 @@ namespace CppCLRWinformsProjekt {
 			this->heightLabel->AutoSize = true;
 			this->heightLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->heightLabel->Location = System::Drawing::Point(371, 40);
+			this->heightLabel->Location = System::Drawing::Point(11, 37);
 			this->heightLabel->Name = L"heightLabel";
 			this->heightLabel->Size = System::Drawing::Size(118, 13);
 			this->heightLabel->TabIndex = 4;
@@ -172,7 +161,7 @@ namespace CppCLRWinformsProjekt {
 			this->widthLabel->AutoSize = true;
 			this->widthLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->widthLabel->Location = System::Drawing::Point(371, 66);
+			this->widthLabel->Location = System::Drawing::Point(11, 63);
 			this->widthLabel->Name = L"widthLabel";
 			this->widthLabel->Size = System::Drawing::Size(118, 13);
 			this->widthLabel->TabIndex = 6;
@@ -181,7 +170,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// widthBox
 			// 
-			this->widthBox->Location = System::Drawing::Point(510, 63);
+			this->widthBox->Location = System::Drawing::Point(150, 60);
 			this->widthBox->Name = L"widthBox";
 			this->widthBox->Size = System::Drawing::Size(156, 20);
 			this->widthBox->TabIndex = 5;
@@ -191,7 +180,7 @@ namespace CppCLRWinformsProjekt {
 			this->iterLabel->AutoSize = true;
 			this->iterLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->iterLabel->Location = System::Drawing::Point(371, 92);
+			this->iterLabel->Location = System::Drawing::Point(11, 89);
 			this->iterLabel->Name = L"iterLabel";
 			this->iterLabel->Size = System::Drawing::Size(133, 13);
 			this->iterLabel->TabIndex = 7;
@@ -200,17 +189,18 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// iterBox
 			// 
-			this->iterBox->Location = System::Drawing::Point(510, 89);
+			this->iterBox->Location = System::Drawing::Point(150, 86);
 			this->iterBox->Name = L"iterBox";
 			this->iterBox->Size = System::Drawing::Size(156, 20);
 			this->iterBox->TabIndex = 8;
+			this->iterBox->TextChanged += gcnew System::EventHandler(this, &Form1::iterBox_TextChanged);
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label6->Location = System::Drawing::Point(371, 221);
+			this->label6->Location = System::Drawing::Point(11, 218);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(130, 13);
 			this->label6->TabIndex = 10;
@@ -222,7 +212,7 @@ namespace CppCLRWinformsProjekt {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label7->Location = System::Drawing::Point(371, 245);
+			this->label7->Location = System::Drawing::Point(11, 242);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(130, 13);
 			this->label7->TabIndex = 11;
@@ -234,7 +224,7 @@ namespace CppCLRWinformsProjekt {
 			this->threadsLabel->AutoSize = true;
 			this->threadsLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->threadsLabel->Location = System::Drawing::Point(371, 118);
+			this->threadsLabel->Location = System::Drawing::Point(11, 115);
 			this->threadsLabel->Name = L"threadsLabel";
 			this->threadsLabel->Size = System::Drawing::Size(77, 13);
 			this->threadsLabel->TabIndex = 12;
@@ -243,7 +233,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(510, 218);
+			this->textBox4->Location = System::Drawing::Point(150, 215);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(125, 20);
 			this->textBox4->TabIndex = 14;
@@ -251,7 +241,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(510, 242);
+			this->textBox5->Location = System::Drawing::Point(150, 239);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(125, 20);
 			this->textBox5->TabIndex = 15;
@@ -259,7 +249,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// threadsBox
 			// 
-			this->threadsBox->Location = System::Drawing::Point(510, 115);
+			this->threadsBox->Location = System::Drawing::Point(150, 112);
 			this->threadsBox->Name = L"threadsBox";
 			this->threadsBox->Size = System::Drawing::Size(156, 20);
 			this->threadsBox->TabIndex = 16;
@@ -267,7 +257,7 @@ namespace CppCLRWinformsProjekt {
 			// cppButton
 			// 
 			this->cppButton->AutoSize = true;
-			this->cppButton->Location = System::Drawing::Point(510, 145);
+			this->cppButton->Location = System::Drawing::Point(150, 142);
 			this->cppButton->Name = L"cppButton";
 			this->cppButton->Size = System::Drawing::Size(44, 17);
 			this->cppButton->TabIndex = 17;
@@ -279,7 +269,7 @@ namespace CppCLRWinformsProjekt {
 			// asmButton
 			// 
 			this->asmButton->AutoSize = true;
-			this->asmButton->Location = System::Drawing::Point(560, 145);
+			this->asmButton->Location = System::Drawing::Point(200, 142);
 			this->asmButton->Name = L"asmButton";
 			this->asmButton->Size = System::Drawing::Size(48, 17);
 			this->asmButton->TabIndex = 18;
@@ -292,7 +282,7 @@ namespace CppCLRWinformsProjekt {
 			this->libLabel->AutoSize = true;
 			this->libLabel->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->libLabel->Location = System::Drawing::Point(372, 147);
+			this->libLabel->Location = System::Drawing::Point(12, 144);
 			this->libLabel->Name = L"libLabel";
 			this->libLabel->Size = System::Drawing::Size(111, 13);
 			this->libLabel->TabIndex = 19;
@@ -304,7 +294,7 @@ namespace CppCLRWinformsProjekt {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(372, 197);
+			this->label2->Location = System::Drawing::Point(12, 194);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(114, 17);
 			this->label2->TabIndex = 20;
@@ -315,7 +305,7 @@ namespace CppCLRWinformsProjekt {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label3->Location = System::Drawing::Point(641, 218);
+			this->label3->Location = System::Drawing::Point(281, 215);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(24, 17);
 			this->label3->TabIndex = 21;
@@ -327,7 +317,7 @@ namespace CppCLRWinformsProjekt {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label4->Location = System::Drawing::Point(641, 242);
+			this->label4->Location = System::Drawing::Point(281, 239);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(24, 17);
 			this->label4->TabIndex = 22;
@@ -338,7 +328,7 @@ namespace CppCLRWinformsProjekt {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label5->Location = System::Drawing::Point(372, 316);
+			this->label5->Location = System::Drawing::Point(12, 313);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(119, 13);
 			this->label5->TabIndex = 23;
@@ -346,7 +336,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// medTimeCppBox
 			// 
-			this->medTimeCppBox->Location = System::Drawing::Point(510, 287);
+			this->medTimeCppBox->Location = System::Drawing::Point(150, 284);
 			this->medTimeCppBox->Name = L"medTimeCppBox";
 			this->medTimeCppBox->Size = System::Drawing::Size(125, 20);
 			this->medTimeCppBox->TabIndex = 24;
@@ -356,7 +346,7 @@ namespace CppCLRWinformsProjekt {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label8->Location = System::Drawing::Point(641, 287);
+			this->label8->Location = System::Drawing::Point(281, 284);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(24, 17);
 			this->label8->TabIndex = 25;
@@ -367,7 +357,7 @@ namespace CppCLRWinformsProjekt {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label9->Location = System::Drawing::Point(641, 313);
+			this->label9->Location = System::Drawing::Point(281, 310);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(24, 17);
 			this->label9->TabIndex = 28;
@@ -375,7 +365,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// medTimeAsmBox
 			// 
-			this->medTimeAsmBox->Location = System::Drawing::Point(510, 313);
+			this->medTimeAsmBox->Location = System::Drawing::Point(150, 310);
 			this->medTimeAsmBox->Name = L"medTimeAsmBox";
 			this->medTimeAsmBox->Size = System::Drawing::Size(125, 20);
 			this->medTimeAsmBox->TabIndex = 27;
@@ -385,7 +375,7 @@ namespace CppCLRWinformsProjekt {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Segoe UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label10->Location = System::Drawing::Point(372, 290);
+			this->label10->Location = System::Drawing::Point(12, 287);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(119, 13);
 			this->label10->TabIndex = 26;
@@ -396,7 +386,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(685, 391);
+			this->ClientSize = System::Drawing::Size(321, 391);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->medTimeAsmBox);
 			this->Controls->Add(this->label10);
@@ -422,11 +412,9 @@ namespace CppCLRWinformsProjekt {
 			this->Controls->Add(this->heightLabel);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->heightBox);
-			this->Controls->Add(this->pictureBox);
 			this->Controls->Add(this->generateButton);
 			this->Name = L"Form1";
 			this->Text = L"Generator fraktali ze zbioru Mandelbrota";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -450,9 +438,9 @@ namespace CppCLRWinformsProjekt {
 			if (widthPre >= 1 && widthPre <= 10000 && heightPre >= 1 && heightPre <= 10000 && maxIterPre >= 1 && maxIterPre <= 1000 && numThreadsPre >= 1 && numThreadsPre <= 100) {
 				width = widthPre;
 				height = heightPre;
-				maxIter = maxIterPre; 
-				numThreads = numThreadsPre; 
-				dataOK = 1; 
+				maxIter = maxIterPre;
+				numThreads = numThreadsPre;
+				dataOK = 1;
 			}
 			else {
 				System::Windows::Forms::MessageBox::Show("Nieprawid³owe dane.");
@@ -516,19 +504,21 @@ namespace CppCLRWinformsProjekt {
 	}
 	private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void saveButton_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void cppButton_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label3_Click_1(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void pictureBox_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	private: System::Void saveButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void cppButton_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label3_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void iterBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	};
 }
